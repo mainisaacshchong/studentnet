@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentNet Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="nav-section">
+        <h1>NAVIGATION</h1>
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/about">About us</a>
+        <a class="nav-item" href="/plan">Our plan</a>
+        <a class="nav-item" href="/copyright">Copyright</a>
+        <a class="nav-item" href="/terms">Terms of Service</a>
+        <a class="nav-item" href="/help">Help</a>
+        <button class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+    </div>
+    <div class="copyright">
+        © 2026 StudentNet<br>All rights reserved
+    </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+    <div class="user-info">
+        <span id="userName"></span>
+        <img id="userPic" src="" alt="Profile Picture">
+    </div>
+
+    <div class="welcome">
+        <h1>Welcome back, <span id="welcomeName"></span></h1>
+        <p>Your personalized StudentNet dashboard</p>
+        <p class="details">
+            Role: <span id="userRole"></span> |
+            Grade: <span id="userGrade"></span> |
+            Class: <span id="userClass"></span> |
+            Number: <span id="userNumber"></span>
+        </p>
+    </div>
+
+    <!-- 1x1 Modules -->
+    <div class="grid">
+        <div class="module coming-soon"><h3>Life</h3><p>In development</p></div>
+        <div class="module"><h3>Council</h3><p>Motions to help the school be better and court.</p></div>
+        <div class="module coming-soon"><h3>Tools</h3><p>In development</p></div>
+        <div class="module coming-soon"><h3>Learn</h3><p>In development</p></div>
+        <div class="module coming-soon"><h3>Social</h3><p>In development</p></div>
+        <div class="module coming-soon"><h3>Messages</h3><p>In development</p></div>
+        <div class="module coming-soon"><h3>Blog</h3><p>In development</p></div>
+        <div class="module coming-soon"><h3>EBAS</h3><p>In development</p></div>
+    </div>
+</div>
+
+<script>
+    // Load user info from Express backend
+    fetch("/me")
+        .then(res => res.json())
+        .then(user => {
+            if (user.username) {
+                document.getElementById("userName").innerText = user.username;
+                document.getElementById("welcomeName").innerText = user.username;
+            }
+            if (user.role) document.getElementById("userRole").innerText = user.role;
+            if (user.grade) document.getElementById("userGrade").innerText = user.grade;
+            if (user.classLetter) document.getElementById("userClass").innerText = user.classLetter;
+            if (user.classNumber) document.getElementById("userNumber").innerText = user.classNumber;
+            if (user.profilePic) document.getElementById("userPic").src = user.profilePic;
+        });
+</script>
+<script src="main.js"></script>
+</body>
+</html>

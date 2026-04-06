@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentNet Login</title>
+    <style>
+        body {
+            background:#0d0d0d; color:#fff; font-family:'Inter',sans-serif;
+            display:flex; justify-content:center; align-items:center; height:100vh;
+        }
+        .login-box {
+            background:#141414; padding:30px; border-radius:12px; border:1px solid #222;
+            width:340px;
+        }
+        h1 { color:#4da6ff; text-align:center; }
+        label { display:block; margin-top:10px; font-weight:bold; }
+        input, button {
+            width:100%; padding:12px; margin-top:5px; border-radius:6px; border:1px solid #333;
+        }
+        input { background:#1a1a1a; color:#fff; }
+        button {
+            background:#4da6ff; border:none; font-weight:bold; color:#000; cursor:pointer;
+            margin-top:15px;
+        }
+        button:hover { background:#1f8cff; }
+        .tabs { display:flex; gap:10px; margin-bottom:15px; }
+        .tab { flex:1; text-align:center; padding:10px; cursor:pointer; background:#1a1a1a; border-radius:6px; }
+        .tab.active { background:#4da6ff; color:#000; font-weight:bold; }
+        .form { display:none; }
+        .form.active { display:block; }
+    </style>
+</head>
+<body>
+<div class="login-box">
+    <h1>Login</h1>
+
+    <div class="tabs">
+        <div class="tab active" data-target="passwordForm">Password</div>
+        <div class="tab" data-target="emailForm">Email Code</div>
+    </div>
+
+    <!-- Password Login -->
+    <form id="passwordForm" class="form active">
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" required>
+
+        <button type="submit">Login with Password</button>
+    </form>
+
+    <!-- Email Code Login -->
+    <form id="emailForm" class="form">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required>
+
+        <button type="button" id="sendCodeBtn">Send Code</button>
+
+        <label for="code">Verification Code</label>
+        <input id="code" type="text" name="code" required>
+
+        <button type="submit">Login with Code</button>
+    </form>
+</div>
+
+<script src="/main.js"></script>
+<script>
+    // Tab switching
+    document.querySelectorAll(".tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
+            tab.classList.add("active");
+            document.getElementById(tab.dataset.target).classList.add("active");
+        });
+    });
+
+    // Password login
+    document.getElementById("passwordForm").addEventListener("submit", e => {
+        e.preventDefault();
+        fetch("/auth/login", { method:"POST", body:new FormData(e.target) })
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) showSuccess(data.message);
+                else alert(data.error || "Login failed");
+                if (data.ok) setTimeout(() => window.location.href="/dashboard", 1500);
+            });
+    });
+
+    // Send code
+    document.getElementById("sendCodeBtn").addEventListener("click", () => {
+        const email = document.getElementById("email").value;
+        fetch("/auth/send-code", { method:"POST", body:new URLSearchParams({ email }) })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.ok) alert(data.error || "Failed to send code");
+                else showSuccess("Verification code sent to your email");
+            });
+    });
+
+    // Email login
+    document.getElementById("emailForm").addEventListener("submit", e => {
+        e.preventDefault();
+        fetch("/auth/login-email", { method:"POST", body:new FormData(e.target) })
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) showSuccess(data.message);
+                else alert(data.error || "Login failed");
+                if (data.ok) setTimeout(() => window.location.href="/dashboard", 1500);
+            });
+    });
+</script>
+</body>
+</html>

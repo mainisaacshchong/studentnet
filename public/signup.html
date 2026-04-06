@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentNet Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="signup-box">
+    <h1>Sign Up</h1>
+
+    <form id="signupForm" enctype="multipart/form-data">
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" required>
+
+        <label for="grade">Grade</label>
+        <input id="grade" type="text" name="grade" required>
+
+        <label for="classLetter">Class Letter</label>
+        <input id="classLetter" type="text" name="classLetter" required>
+
+        <label for="classNumber">Class Number</label>
+        <input id="classNumber" type="text" name="classNumber" required>
+
+        <label for="profilePic">Profile Picture</label>
+        <input id="profilePic" type="file" name="profilePic">
+
+        <label><input type="checkbox" name="tos" required> Accept Terms of Service</label>
+
+        <button type="button" id="sendSignupCodeBtn">Send Confirmation Code</button>
+
+        <label for="signupCode">Confirmation Code</label>
+        <input id="signupCode" type="text" name="signupCode" required>
+
+        <button type="submit">Create Account</button>
+    </form>
+</div>
+
+<script src="/main.js"></script>
+<script src="/signup.js"></script>
+</body>
+</html>

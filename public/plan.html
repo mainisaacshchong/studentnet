@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Development Roadmap • StudentNet</title>
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+        /* Scrollable timeline container */
+        .timeline-scroll {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-top: 20px;
+        }
+
+        /* Custom scrollbar */
+        .timeline-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .timeline-scroll::-webkit-scrollbar-thumb {
+            background: #4da6ff;
+            border-radius: 4px;
+        }
+        .timeline-scroll::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        /* Timeline line */
+        .timeline {
+            border-left: 3px solid #4da6ff;
+            padding-left: 25px;
+        }
+
+        /* Timeline items */
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            background: #4da6ff;
+            border-radius: 50%;
+            position: absolute;
+            left: -32px;
+            top: 4px;
+        }
+
+        .version-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4da6ff;
+        }
+
+        .version-date {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .version-content {
+            background: #141414;
+            border: 1px solid #222;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="nav-section">
+        <h1>NAVIGATION</h1>
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/about">About us</a>
+        <a class="nav-item" href="/plan">Our plan</a>
+        <a class="nav-item" href="/files/Terms%20of%20Service.docx" download>Terms of Service</a>
+        <a class="nav-item" href="/help">Help</a>
+    </div>
+
+    <div class="copyright">
+        © 2026 StudentNet<br>All rights reserved
+    </div>
+</div>
+
+
+    <div class="copyright">
+        © 2026 StudentNet<br>All rights reserved
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+    <!-- TOP BAR -->
+    <div class="welcome">
+        <h1>Topbar</h1>
+        <p style="opacity:0.7; margin-top:5px;">Development Roadmap</p>
+    </div>
+
+    <!-- TIMELINE PANEL -->
+    <div class="panel">
+        <h2>Version Timeline</h2>
+
+        <div class="timeline-scroll">
+            <div class="timeline">
+
+                <!-- v0.8 beta -->
+                <div class="timeline-item">
+                    <div class="version-title">v0.8 beta</div>
+                    <div class="version-date">3 / 11 / 2026</div>
+
+                    <div class="version-content">
+                        <p>{content}</p>
+                    </div>
+                </div>
+
+                <!-- v0.7.9 -->
+                <div class="timeline-item">
+                    <div class="version-title">v0.7.9</div>
+                    <div class="version-date">20 / 10 / 2026</div>
+
+                    <div class="version-content">
+                        <p>{content}</p>
+                    </div>
+                </div>
+
+                <!-- Add more versions here -->
+                <!-- Example:
+                <div class="timeline-item">
+                    <div class="version-title">v1.0</div>
+                    <div class="version-date">1 / 1 / 2027</div>
+                    <div class="version-content">
+                        <p>Major release with UI overhaul.</p>
+                    </div>
+                </div>
+                -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

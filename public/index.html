@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentNet - Learn Smarter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<style>/* ------------------------------
+   INDEX / MARKETING PAGE STYLES
+------------------------------ */
+
+/* Reset */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #0d0d0d;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* Topbar */
+.topbar {
+    background: #111;
+    padding: 20px 40px;
+    border-bottom: 1px solid #222;
+}
+.topbar h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #4da6ff;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(180deg, #0d0d0d, #141414);
+}
+.hero h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: #4da6ff;
+}
+.hero-sub {
+    font-size: 22px;
+    opacity: 0.85;
+    margin-bottom: 30px;
+}
+.hero .button {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #4da6ff;
+    color: #000;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.hero .button:hover {
+    background: #66b3ff;
+}
+
+/* Mission Section */
+.mission {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+.mission h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Why Section */
+.why {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.why h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.why ul {
+    list-style: disc;
+    padding-left: 40px;
+}
+.why li {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+/* Highlights (stacked vertically) */
+.highlights {
+    display: flex;
+    flex-direction: column;   /* vertical stack */
+    gap: 30px;
+    padding: 80px 40px;
+    align-items: center;
+}
+.highlight {
+    width: 100%;
+    max-width: 700px;
+    background: #141414;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #222;
+    text-align: center;
+}
+.highlight h3 {
+    margin-top: 0;
+    color: #4da6ff;
+}
+
+/* Features (stacked vertically) */
+.features {
+    display: flex;
+    flex-direction: column;   /* vertical stack */
+    gap: 25px;
+    padding: 80px 40px;
+    align-items: center;
+}
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    width: 100%;
+    max-width: 700px;
+}
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.card-inner {
+    background: #141414;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #222;
+}
+.card-inner h3 {
+    margin-top: 0;
+    color: #4da6ff;
+}
+
+/* Footer */
+.footer {
+    background: #111;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #222;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* ------------------------------
+   Responsive Adjustments
+------------------------------ */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 42px;
+    }
+    .hero-sub {
+        font-size: 18px;
+    }
+    .mission, .why, .highlights, .features {
+        padding: 60px 20px;
+    }
+}
+/* TOPBAR NAVIGATION (matches sidebar theme) */
+.topbar-nav {
+    width: 100%;
+    background: #111;
+    border-bottom: 1px solid #222;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-left h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #4da6ff;
+    letter-spacing: 1px;
+}
+
+.topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.topbar-links .nav-item {
+    padding: 10px 14px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #222;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #f5f5f5;
+    font-size: 14px;
+}
+
+.topbar-links .nav-item:hover {
+    background: #4da6ff;
+    color: #000;
+}
+
+.topbar-links .logout-btn {
+    padding: 10px 14px;
+    background: #4da6ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000;
+    transition: 0.2s;
+}
+
+.topbar-links .logout-btn:hover {
+    background: #66b3ff;
+}
+
+</style>
+<body>
+<div class="topbar-nav">
+    <div class="topbar-left">
+        <h1>StudentNet</h1>
+    </div>
+
+    <div class="topbar-links">
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/about">About us</a>
+        <a class="nav-item" href="/plan">Our plan</a>
+        <a class="nav-item" href="/copyright">Copyright</a>
+        <a class="nav-item" href="/terms">Terms of Service</a>
+        <a class="nav-item" href="/help">Help</a>
+
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>StudentNet</h1>
+    <p class="hero-sub">Your all‑in‑one utility hub built to empower students everywhere.</p>
+    <a class="button" href='/login'>Use now!</a>
+</section>
+
+<!-- Mission -->
+<section class="mission">
+    <h2>Our Mission</h2>
+    <p>
+        StudentNet is designed to simplify school life for every learner.
+        From productivity tools to collaboration, from community support to life utilities —
+        everything you need lives in one clean, fast, student‑friendly platform.
+    </p>
+</section>
+
+<!-- Why Students Love StudentNet -->
+<section class="why">
+    <h2>Why Students Love StudentNet</h2>
+    <ul>
+        <li>Built for students of all ages and learning environments</li>
+        <li>Fast, lightweight, and mobile‑friendly</li>
+        <li>Designed around real student needs and daily challenges</li>
+        <li>Constantly updated with new tools and improvements</li>
+        <li>Created with passion to make learning easier and more enjoyable</li>
+    </ul>
+</section>
+
+<!-- Highlights (stacked vertically) -->
+<section class="highlights">
+    <div class="highlight">
+        <h3>Demacress</h3>
+        <p>A community ran council. Votes and an ecosystem preparing you for the future.</p>
+    </div>
+    <div class="highlight">
+        <h3>Life Tools</h3>
+        <p>Everyday utilities: calculators, converters, timers, wellbeing tools, and more.</p>
+    </div>
+    <div class="highlight">
+        <h3>Council</h3>
+        <p>A dedicated space for announcements, feedback, updates, and community voice.</p>
+    </div>
+</section>
+
+<!-- Features (stacked vertically) -->
+<section class="features">
+    <div class="card"><div class="card-inner">
+        <h3>Interactive Learning</h3>
+        <p>Smart study modules, auto‑generated quizzes, and adaptive tools that help you revise faster.</p>
+    </div></div>
+
+    <div class="card"><div class="card-inner">
+        <h3>Personalized Dashboard</h3>
+        <p>Your timetable, tasks, shortcuts, and updates — all in one clean, customizable view.</p>
+    </div></div>
+
+    <div class="card"><div class="card-inner">
+        <h3>Collaboration</h3>
+        <p>Share notes, work together, and communicate with classmates in a unified hub.</p>
+    </div></div>
+
+    <div class="card"><div class="card-inner">
+        <h3>Resource Library</h3>
+        <p>Guides, worksheets, notes, and curated materials — organized and searchable.</p>
+    </div></div>
+
+    <div class="card"><div class="card-inner">
+        <h3>Mobile Friendly</h3>
+        <p>Optimized for phones, tablets, and desktops so StudentNet is always with you.</p>
+    </div></div>
+
+    <div class="card"><div class="card-inner">
+        <h3>Analytics</h3>
+        <p>Visual insights into your study habits, productivity, and progress over time.</p>
+    </div></div>
+
+    <div class="card"><div class="card-inner">
+        <h3>Community Support</h3>
+        <p>A friendly help space where students can ask questions and share knowledge instantly.</p>
+    </div></div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>StudentNet — Built with passion for students everywhere.</p>
+    <p>v1 BETA</p>
+</footer>
+
+<!-- JS: Fade-in on DOM load -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".card");
+        cards.forEach(card => card.classList.add("show"));
+    });
+</script>
+<script src="main.js"></script>
+</body>
+</html>

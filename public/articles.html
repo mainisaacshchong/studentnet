@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Help Article • StudentNet</title>
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .useful-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .useful-buttons button {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .yes-btn {
+      background: #4da6ff;
+      color: #000;
+    }
+
+    .no-btn {
+      background: #ff4d4d;
+      color: #000;
+    }
+
+    .comments {
+      margin-top: 30px;
+    }
+
+    .comment {
+      background: #141414;
+      border: 1px solid #222;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR (marketing version) -->
+<div class="topbar-nav">
+  <div class="topbar-left">
+    <h1>StudentNet</h1>
+  </div>
+
+  <div class="topbar-links">
+    <a class="nav-item" href="/">Home</a>
+    <a class="nav-item" href="/about">About us</a>
+    <a class="nav-item" href="/plan">Our plan</a>
+    <a class="nav-item" href="/files/StudentNet_TOS.docx" download>Terms of Service</a>
+    <a class="nav-item" href="/help">Help</a>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="nav-section">
+    <h1>NAVIGATION</h1>
+    <a class="nav-item" href="/">Home</a>
+    <a class="nav-item" href="/about">About us</a>
+    <a class="nav-item" href="/plan">Our plan</a>
+    <a class="nav-item" href="/files/StudentNet_TOS.docx" download>Terms of Service</a>
+    <a class="nav-item" href="/help">Help</a>
+  </div>
+
+  <div class="copyright">
+    © 2026 StudentNet<br>All rights reserved
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+  <div class="welcome">
+    <h1 id="article-title">Article Title</h1>
+    <p id="article-id">Article ID: 6ab4djw03j</p>
+  </div>
+
+  <div class="panel">
+    <div id="article-content">
+      <p>This is where the article content goes. Admins can upload or write articles, and the system will display them here.</p>
+    </div>
+
+    <div class="useful-buttons">
+      <button class="yes-btn">Yes, this was useful</button>
+      <button class="no-btn">No, this wasn’t helpful</button>
+    </div>
+
+    <div class="comments">
+      <h3>Comments</h3>
+
+      <div class="comment">This helped a lot, thanks!</div>
+      <div class="comment">Can you explain more about the dashboard?</div>
+
+      <textarea placeholder="Write a comment..." style="width:100%; height:80px; margin-top:10px; background:#141414; border:1px solid #222; border-radius:8px; color:#fff;"></textarea>
+      <button style="margin-top:10px; padding:10px 16px; background:#4da6ff; border:none; border-radius:8px; cursor:pointer; font-weight:600;">Post Comment</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentNet Council</title>
+    <link rel="stylesheet" href="/style.css">
+    <script defer src="/council.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="nav-section">
+        <h1>NAVIGATION</h1>
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/about">About us</a>
+        <a class="nav-item" href="/plan">Our plan</a>
+        <a class="nav-item" href="/copyright">Copyright</a>
+        <a class="nav-item" href="/terms">Terms of Service</a>
+        <a class="nav-item" href="/help">Help</a>
+        <button class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+    </div>
+    <div class="copyright">
+        © 2026 StudentNet<br>All rights reserved
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+    <!-- USER INFO -->
+    <div class="user-info">
+        <span id="userName"></span>
+        <img id="userPic" src="" alt="Profile Picture">
+    </div>
+
+    <!-- PAGE TITLE -->
+    <div class="welcome">
+        <h1>Council Hub</h1>
+        <p>Manage councils, browse motions, and participate in student governance.</p>
+    </div>
+
+    <!-- TAB BUTTONS -->
+    <div class="tab-buttons">
+        <button class="active" onclick="openTab('browse')">Browse Councils</button>
+        <button onclick="openTab('your')">Your Councils</button>
+        <button onclick="openTab('create')">Create Council</button>
+        <button onclick="openTab('motions')">Motions</button>
+        <button onclick="openTab('manage')">Manage</button>
+    </div>
+
+    <!-- BROWSE COUNCILS -->
+    <div id="browse" class="tab active">
+        <div class="panel">
+            <h2>Browse Public Councils</h2>
+            <p>Join any public council or request access to approval‑based ones.</p>
+
+            <div id="browseList"></div>
+        </div>
+    </div>
+
+    <!-- YOUR COUNCILS -->
+    <div id="your" class="tab">
+        <div class="panel">
+            <h2>Your Councils</h2>
+            <p>Councils you are a member of.</p>
+
+            <div id="yourCouncilList"></div>
+        </div>
+    </div>
+
+    <!-- CREATE COUNCIL -->
+    <div id="create" class="tab">
+        <div class="panel">
+            <h2>Create a Council</h2>
+
+            <form id="createCouncilForm" class="council-form">
+
+                <label for="councilName">Council Name</label>
+                <input id="councilName" type="text" name="name" required>
+
+                <label for="councilDesc">Description</label>
+                <textarea id="councilDesc" name="description" required></textarea>
+
+                <label for="joinMode">Join Mode</label>
+                <select id="joinMode" name="joinMode">
+                    <option value="open">Everyone can join</option>
+                    <option value="link">Join with link</option>
+                    <option value="approval">Approval required</option>
+                </select>
+
+                <label for="visibility">Visibility</label>
+                <select id="visibility" name="visibility">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                </select>
+
+                <button class="submit">Create Council</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MOTIONS -->
+    <div id="motions" class="tab">
+
+        <div class="status-row">
+            <div class="status-card">
+                <h3>Total Motions</h3>
+                <p class="count" id="totalMotions">0</p>
+                <p class="detail">Across all councils</p>
+            </div>
+
+            <div class="status-card">
+                <h3>Your Motions</h3>
+                <p class="count" id="yourMotions">0</p>
+                <p class="detail">Created by you</p>
+            </div>
+
+            <div class="status-card">
+                <h3>Signed Motions</h3>
+                <p class="count" id="signedMotions">0</p>
+                <p class="detail">You support these</p>
+            </div>
+
+            <div class="status-card">
+                <h3>Trending</h3>
+                <p class="count" id="trendingMotions">0</p>
+                <p class="detail">Boosted by others</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>All Motions</h2>
+            <div id="motionList"></div>
+        </div>
+    </div>
+
+    <!-- MANAGE -->
+    <div id="manage" class="tab">
+        <div class="panel">
+            <h2>Manage Your Councils</h2>
+            <p>Adjust settings, approve members, and view analytics.</p>
+
+            <div id="manageList"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function openTab(id) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-buttons button').forEach(b => b.classList.remove('active'));
+
+        document.getElementById(id).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Motion Details</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="sidebar">
+    <div class="nav-section">
+        <h1>NAVIGATION</h1>
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/about">About us</a>
+        <a class="nav-item" href="/plan">Our plan</a>
+        <a class="nav-item" href="/copyright">Copyright</a>
+        <a class="nav-item" href="/terms">Terms of Service</a>
+        <a class="nav-item" href="/help">Help</a>
+        <button class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+    </div>
+    <div class="copyright">
+        © 2026 StudentNet<br>All rights reserved
+    </div>
+</div>
+
+<div class="main">
+
+    <div class="user-info">
+        <span id="userName"></span>
+        <img id="userPic" src="" alt="Profile Picture">
+    </div>
+
+    <div class="welcome">
+        <h1 id="motionTitle">Loading...</h1>
+        <p id="motionDescription"></p>
+        <p class="details">
+            Council: <span id="motionCouncil"></span> |
+            Creator: <span id="motionCreator"></span>
+        </p>
+    </div>
+
+    <div class="panel">
+        <h2>Supporters</h2>
+        <p><strong id="supporterCount">0</strong> people supported this motion.</p>
+        <ul id="supportersList"></ul>
+        <button id="signMotionBtn">Sign this Motion</button>
+    </div>
+
+    <div class="panel">
+        <h2>Approved Articles</h2>
+        <div id="articleList"></div>
+    </div>
+
+    <div class="panel">
+        <h2>Pending Articles (Owner Only)</h2>
+        <div id="pendingArticles"></div>
+    </div>
+
+    <div class="panel">
+        <h2>Add Article</h2>
+        <form id="addArticleForm">
+            <textarea id="articleText" placeholder="Write your article..." required></textarea>
+            <button class="submit">Submit Article</button>
+        </form>
+    </div>
+
+</div>
+
+<script src="/motion.js"></script>
+</body>
+</html>
