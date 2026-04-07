@@ -12,5 +12,9 @@
     "multer": "^2.1.1",
     "nodemailer": "^8.0.4",
     "nodemon": "^3.1.14"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
+
 }

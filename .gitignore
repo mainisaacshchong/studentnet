@@ -3,3 +3,5 @@
 
 # Ignore node_modules
 node_modules/
+
+users.json
